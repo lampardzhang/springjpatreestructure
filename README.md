@@ -26,6 +26,53 @@ private Long userId;
 
 
 
+#### 使用PostMan进行接口测试
+
+以下是使用postman 创建一条新的user 记录的范例json数据
+
+`{`    
+
+​    `"name": "damone-commerce222",`    
+
+​    `"zip": {` 
+
+​        `"zipCode": "200433"`        
+
+​    `},`
+
+​    `"accountList": [`
+
+​        `{`        
+
+​            `"accountName": "account1"`                  
+
+​        `}`
+
+​    `],`    
+
+​    `"testData":"test"`
+
+`}`
+
+业务对象结构为 User 对象有 Account 子对象, 关系为oneToMany .
+
+```
+@OneToMany(targetEntity = DamonAccount.class ,mappedBy = "userId",
+         fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
+ private List<DamonAccount> accountList;
+```
+
+而Account 对象有Address 子对象,关系同样为oneToMany
+
+```
+@OneToMany(targetEntity = DamonAddress.class ,mappedBy = "accountId",
+        fetch = FetchType.LAZY, cascade = CascadeType.ALL,orphanRemoval = true)
+//@Fetch(FetchMode.SELECT)
+private List<DamonAddress> addressList;
+```
+
+
+
 ### Installation
 
 You'll need maven, npm and JAVA pre-installed, which most probably you'll already have.  To run the application, run the following commands from the console.
