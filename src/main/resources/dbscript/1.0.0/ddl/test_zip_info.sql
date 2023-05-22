@@ -1,0 +1,11 @@
+CREATE TABLE `test_zip_info` (
+  `LIST_ID` bigint(20) NOT NULL,
+  `ZIP_CODE` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `ACCOUNT_ID` bigint(20) DEFAULT NULL,
+  `INSERT_BY` bigint(20) DEFAULT NULL,
+  `INSERT_TIME` datetime DEFAULT NULL,
+  `UPDATE_BY` bigint(20) DEFAULT NULL,
+  `UPDATE_TIME` datetime DEFAULT NULL,
+  `USER_ID` bigint(20) DEFAULT NULL,
+  `zip_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;

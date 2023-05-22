@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd                               http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet author="liquibase-docs" id="sqlFile-test-account">
+        <sqlFile dbms="!h2, oracle, mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="ddl/test_account.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+    </changeSet>
+
+    <changeSet author="liquibase-docs" id="sqlFile-test-address">
+        <sqlFile dbms="!h2, oracle, mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="ddl/test_address.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+    </changeSet>
+
+    <changeSet author="liquibase-docs" id="sqlFile-test-user">
+        <sqlFile dbms="!h2, oracle, mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="ddl/test_user.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+    </changeSet>
+
+    <changeSet author="liquibase-docs" id="sqlFile-test-user-log">
+        <sqlFile dbms="!h2, oracle, mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="ddl/test_user_log.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+    </changeSet>
+
+    <changeSet author="liquibase-docs" id="sqlFile-test-zip-info">
+        <sqlFile dbms="!h2, oracle, mysql"
+                 encoding="UTF-8"
+                 endDelimiter="\nGO"
+                 path="ddl/test_zip_info.sql"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+    </changeSet>
+
+</databaseChangeLog>
