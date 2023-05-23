@@ -26,6 +26,10 @@
 private Long userId;
 ```
 
+在JPA 进行数据库写入时, overwrite prePersist 方法, 遍历子对象的 parentId property 进行赋值.
+
+
+
 #### 使用PostMan进行接口测试
 
 ------
@@ -92,7 +96,7 @@ public DamonUser create(
 
 ​	对于复杂业务对象进行save保存操作时,对于从前端接口传递的业务对象模型数据, 无需一个业务对象一个业务对象分别做copy, 只需要调用 DeepCopyUtil 工具类提供的deepCopy 方法即可. 该方法通过递归实现子对象的级联copy. 
 
-​	需要注意的是对于List 对象,如果Source Object 中删除了一条记录, save 之后该记录在数据表中会被物理删除掉. 可以通过声明 *@LogicDeletionField*来实现逻辑删除.范例代码:
+​	需要注意的是对于List 对象,如果前端传递的Source Object 中删除了一条记录, save 之后该记录在数据表中会被物理删除掉. 可以通过声明 *@LogicDeletionField*来实现逻辑删除.范例代码:
 
 ```
 @Column(name="IS_DELETE")
@@ -100,7 +104,7 @@ public DamonUser create(
 private String isDelete;
 ```
 
-
+save 之后该对象的isDelete 会被赋值为“Y” 以实现逻辑删除效果. 
 
 
 
