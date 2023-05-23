@@ -3,9 +3,9 @@
 
 
 
-## 功能要点
+### 功能要点
 
-### 级联结构的实现	
+#### 级联结构的实现	
 
 ​		很多时候我们的业务实体比较复杂, 可能有多个层级，以用户为例，一个用户可能有多个地址信息， 多个邮件地址信息, 而一个地址信息又有可能拥有多个邮编信息. 整体来看, 用户实体就是一个树状结构, 但如果我们后台使用oracle /mysql 这类行存储结构的数据库时, 用户, 地址,邮编,邮件可能要分别对应一张实体表,需要开发人员在业务逻辑层实现大量代码来实现用户对象的创建,修改等操作. 
 
@@ -90,7 +90,7 @@ public DamonUser create(
 }
 ```
 
-### DeepCopy的实现
+#### DeepCopy的实现
 
 ​	对于复杂业务对象进行save保存操作时,对于从前端接口传递的业务对象模型数据, 无需一个业务对象一个业务对象分别做copy, 只需要调用 DeepCopyUtil 工具类提供的deepCopy 方法即可. 该方法通过递归实现子对象的级联copy. 
 
@@ -106,8 +106,6 @@ save 之后该对象的isDelete 会被赋值为“Y” 以实现逻辑删除效�
 
 ### 安装准备
 
-
-
 - 请预先安装Mysql/Oralce 等关系型数据库, 配置 application.properties 中spring datasource 
 
 ```
@@ -118,3 +116,7 @@ spring.datasource.password=your password
 
 - 兼容JDK11
 - 使用liquibase 进行数据库结构变更管理,项目启动后会自动在目标数据库建立对应表结构
+
+- 建议使用IDEA 进行开发调试, 启动/Debug 界面范例
+
+  ![截屏2023-05-23 10.37.53](https://raw.githubusercontent.com/lampardzhang/imagesForUpgit/master/2023/05/upgit_20230523_1684809551.png)
