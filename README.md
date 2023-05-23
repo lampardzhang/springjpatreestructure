@@ -32,8 +32,6 @@ private Long userId;
 
 #### 使用PostMan进行接口测试
 
-------
-
 以下是使用postman 创建一条新的user 记录的范例json数据
 
 `{`    
@@ -106,20 +104,17 @@ private String isDelete;
 
 save 之后该对象的isDelete 会被赋值为“Y” 以实现逻辑删除效果. 
 
+### 安装准备
 
 
 
+- 请预先安装Mysql/Oralce 等关系型数据库, 配置 application.properties 中spring datasource 
 
-### Installation
-
-You'll need maven, npm and JAVA pre-installed, which most probably you'll already have.  To run the application, run the following commands from the console.
-
-```sh
-$ mvn clean
-$ mvn package
-$ java -jar target/springboot-0.0.1-SNAPSHOT.jar
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=your username
+spring.datasource.password=your password
 ```
 
-
-
-Happy coding 😃
+- 兼容JDK11
+- 使用liquibase 进行数据库结构变更管理,项目启动后会自动在目标数据库建立对应表结构
