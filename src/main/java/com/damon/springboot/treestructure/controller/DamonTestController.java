@@ -13,6 +13,8 @@ import com.damon.springboot.treestructure.model.bo.DamonAddress;
 import com.damon.springboot.treestructure.model.bo.DamonUser;
 import com.damon.springboot.treestructure.model.bo.DamonUserLog;
 import com.damon.springboot.treestructure.util.JSONUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -34,6 +36,7 @@ import java.util.List;
 public class DamonTestController {
 
 
+  private Logger logger = LoggerFactory.getLogger(DamonTestController.class);
     @Autowired
     private DamonUserRepo damonUserRepo;
     @Autowired
@@ -71,6 +74,7 @@ public class DamonTestController {
                 return damonUserDao.save(damonUser);
             }
         } else {
+
             return null;
         }
 
@@ -85,6 +89,7 @@ public class DamonTestController {
         DamonUser u = new DamonUser();
         DeepCopyUtil.deepCopyObject(damonUser,u,true);
         u.setVersion(0l);
+        logger.info(" new user is "+JSONUtils.toJSON(u));
         return this.damonUserDao.save(u);
     }
 
